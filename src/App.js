@@ -12,11 +12,17 @@ function App() {
 
   const handleCalculate = () => {
     try {
-      setOutput(eval(input).toString());
+      const result = eval(input);
+      if (!isFinite(result)) {
+        setOutput("Infinity");
+      } else {
+        setOutput(result.toString());
+      }
     } catch (error) {
       setOutput("Error");
     }
   };
+  
 
   const handleClear = () => {
     setInput("");
