@@ -12,16 +12,21 @@ function App() {
 
   const handleCalculate = () => {
     try {
-      const result = eval(input);
-      if (!isFinite(result)) {
-        setOutput("Infinity");
+      if (!input.trim()) {
+        setOutput("Error");
       } else {
-        setOutput(result.toString());
+        const result = eval(input);
+        if (!isFinite(result)) {
+          setOutput("Infinity");
+        } else {
+          setOutput(result.toString());
+        }
       }
     } catch (error) {
       setOutput("Error");
     }
   };
+  
   
 
   const handleClear = () => {
