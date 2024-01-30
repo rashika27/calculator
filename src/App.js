@@ -16,7 +16,9 @@ function App() {
         setOutput("Error");
       } else {
         const result = eval(input);
-        if (isNaN(result) || !isFinite(result)) {
+        if (!isFinite(result)) {
+          setOutput("Infinity");
+        } else if (isNaN(result)) {
           setOutput("NaN");
         } else {
           setOutput(result.toString());
@@ -26,6 +28,7 @@ function App() {
       setOutput("Error");
     }
   };
+  
   
   
   
